@@ -692,10 +692,12 @@ public class ActVideoTrimmer extends LocalizationActivity {
     private boolean checkStoragePermission() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             return checkPermission(
-                    Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.ACCESS_MEDIA_LOCATION);
-        } else
+                Manifest.permission.READ_EXTERNAL_STORAGE,
+                Manifest.permission.ACCESS_MEDIA_LOCATION
+            );
+        } else {
             return checkPermission(Manifest.permission.READ_EXTERNAL_STORAGE);
-
+        }
     }
 
     private boolean checkPermission(String... permissions) {
